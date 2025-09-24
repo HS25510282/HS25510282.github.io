@@ -5,91 +5,120 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Munagamage D.C.S - Biotechnology Portfolio</title>
   <style>
-    /* General Styles */
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f9;
-      color: #333;
-    }
-    a {
-      text-decoration: none;
-      color: #007BFF;
-    }
-    a:hover {
-      color: #0056b3;
-    }
+    /* ===== General Styles ===== */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f4f8; color: #333; line-height: 1.6; overflow-x: hidden; }
+    a { text-decoration: none; color: #ff6b81; transition: 0.3s; }
+    a:hover { color: #ff4757; }
 
-    /* Header */
+    /* ===== Header ===== */
     header {
-      background: #222;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
       color: #fff;
-      padding: 40px 0;
       text-align: center;
+      padding: 70px 20px;
+      animation: fadeInDown 1s ease forwards;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    header p {
-      margin: 5px 0 0;
-      font-size: 1.2rem;
-    }
+    header h1 { font-size: 3rem; margin-bottom: 10px; }
+    header p { font-size: 1.3rem; font-weight: 500; }
 
-    /* Sections */
+    /* ===== Section Styling ===== */
     section {
       max-width: 900px;
       margin: 40px auto;
       background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      padding: 50px 35px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s forwards;
+      animation-delay: 0.3s;
+    }
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
     }
     section h2 {
       text-align: center;
-      color: #222;
-      margin-bottom: 20px;
+      color: #6a11cb;
+      margin-bottom: 25px;
+      font-size: 2rem;
+      position: relative;
+    }
+    section h2::after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background: #2575fc;
+      margin: 10px auto 0;
+      border-radius: 2px;
     }
 
-    /* Profile Picture */
+    /* ===== Profile Image ===== */
     .profile-pic {
       display: block;
-      margin: 0 auto 20px;
+      margin: 0 auto 25px;
       border-radius: 50%;
       width: 180px;
       height: 180px;
       object-fit: cover;
-      border: 3px solid #007BFF;
+      border: 5px solid #ff6b81;
+      animation: fadeIn 1.5s ease forwards;
     }
 
-    /* Lists */
-    ul {
-      list-style-type: square;
-      padding-left: 20px;
-    }
-    li {
-      margin-bottom: 10px;
-    }
+    /* ===== Lists ===== */
+    ul { list-style-type: disc; padding-left: 25px; }
+    li { margin-bottom: 12px; font-size: 1.05rem; }
 
-    /* Resume Button */
+    /* ===== Buttons ===== */
     .button {
       display: inline-block;
-      background: #007BFF;
+      background: linear-gradient(135deg, #ff6b81, #ff4757);
       color: #fff;
-      padding: 12px 25px;
-      border-radius: 5px;
-      margin-top: 15px;
+      padding: 14px 30px;
+      border-radius: 10px;
       font-weight: bold;
+      font-size: 1rem;
+      margin-top: 20px;
+      transition: background 0.3s ease, transform 0.2s ease;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      animation-delay: 0.6s;
     }
     .button:hover {
-      background: #0056b3;
+      background: linear-gradient(135deg, #ff4757, #ff6b81);
+      transform: translateY(-3px);
     }
 
-    /* Contact Info */
+    /* ===== Contact Info ===== */
     .contact p {
       text-align: center;
-      margin: 8px 0;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+
+    /* ===== Animations ===== */
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.2rem; }
+      header p { font-size: 1.1rem; }
+      section { padding: 35px 20px; }
     }
   </style>
 </head>
@@ -102,14 +131,14 @@
   </header>
 
   <!-- About Me -->
-  <section>
+  <section style="animation-delay:0.2s;">
     <h2>About Me</h2>
     <img src="IMG_4682.JPG" alt="Munagamage D.C.S" class="profile-pic">
     <p>Hello! I'm Munagamage D.C.S, a 19-year-old Biotechnology undergraduate at SLIIT. I’m passionate about molecular biology, AI in genomics, and drug development. I love exploring new technologies, coding in Python, and working on science projects that make a real impact.</p>
   </section>
 
   <!-- Education -->
-  <section>
+  <section style="animation-delay:0.4s;">
     <h2>Education</h2>
     <ul>
       <li><b>Secondary Education:</b> A/L Biology Stream (Chemistry A, Physics B, Biology B)</li>
@@ -118,7 +147,7 @@
   </section>
 
   <!-- Skills -->
-  <section>
+  <section style="animation-delay:0.5s;">
     <h2>Skills</h2>
     <ul>
       <li>Programming: Python</li>
@@ -129,30 +158,31 @@
   </section>
 
   <!-- Projects -->
-  <section>
+  <section style="animation-delay:0.6s;">
     <h2>Projects</h2>
     <ul>
+      <li>Carbon Nanotube-Based Drug Delivery – Group Presentation</li>
       <li>Udemy 100 Days of Code: Python Bootcamp – Ongoing</li>
     </ul>
   </section>
 
   <!-- Hobbies -->
-  <section>
+  <section style="animation-delay:0.7s;">
     <h2>Hobbies</h2>
     <p>Fitness 🏋️, Cooking 🍳, Reading science news 🔬, Learning new technologies 🧠</p>
   </section>
 
   <!-- Resume -->
-  <section>
+  <section style="animation-delay:0.8s;">
     <h2>Resume</h2>
-    <a href="HS25510282Resume.pdf" class="button" target="_blank">Download My Resume</a>
+    <a href="HS25510282_CV.pdf" class="button" target="_blank">Download My Resume</a>
   </section>
 
   <!-- Contact -->
-  <section class="contact">
+  <section class="contact" style="animation-delay:0.9s;">
     <h2>Contact</h2>
-    <p>Email: your.email@example.com</p>
-    <p>GitHub: <a href="https://github.com/DinushkaChampika" target="_blank">https://github.com/DinushkaChampika</a></p>
+    <p>Email: hs25510282@my.sliit.lk</p>
+    <p>GitHub: <a href="https://github.com/HS25510282" target="_blank">https://github.com/HS25510282</a></p>
   </section>
 
 </body>
