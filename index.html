@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Munagamage D.C.S - Biotechnology Portfolio</title>
+  <title>Munagamage D.C.S - Portfolio</title>
   <style>
-    /* ===== Global ===== */
+    /* ===== Global Styles ===== */
     * { margin:0; padding:0; box-sizing:border-box; scroll-behavior: smooth; }
     body { font-family: 'Poppins', sans-serif; background: #f0f4f8; color: #111; overflow-x:hidden; }
     a { text-decoration: none; color: inherit; }
@@ -13,7 +13,7 @@
     /* ===== Header ===== */
     header {
       height:100vh;
-      background: linear-gradient(135deg,#ff6b81,#6a11cb,#2575fc);
+      background: linear-gradient(135deg,#6a11cb,#2575fc,#ff6b81);
       display:flex;
       flex-direction:column;
       justify-content:center;
@@ -23,125 +23,44 @@
       position:relative;
       overflow:hidden;
     }
-    header h1 {
-      font-size:4rem;
-      margin-bottom:20px;
-      opacity:0;
-      transform:translateY(50px);
-      animation: fadeSlide 1s forwards;
-    }
-    header p {
-      font-size:1.5rem;
-      max-width:600px;
-      opacity:0;
-      transform:translateY(50px);
-      animation: fadeSlide 1s forwards;
-      animation-delay:0.5s;
-    }
+    header h1 { font-size:4rem; margin-bottom:15px; opacity:0; transform:translateY(50px); animation:fadeSlide 1s forwards;}
+    header h2 { font-size:2rem; opacity:0; transform:translateY(50px); animation:fadeSlide 1s forwards; animation-delay:0.4s;}
+    header p { margin-top:15px; font-size:1.2rem; opacity:0; transform:translateY(50px); animation:fadeSlide 1s forwards; animation-delay:0.6s;}
 
-    /* Floating Animated Shapes */
-    .shape {
-      position:absolute;
-      border-radius:50%;
-      opacity:0.2;
-      animation: float 10s infinite ease-in-out alternate;
-    }
-    .shape1 { width:200px; height:200px; background:#ffde59; top:10%; left:5%; animation-delay:0s; }
-    .shape2 { width:150px; height:150px; background:#00d2ff; top:30%; right:10%; animation-delay:2s; }
-    .shape3 { width:250px; height:250px; background:#ff6b81; bottom:10%; left:20%; animation-delay:4s; }
-    @keyframes float {
-      0% { transform: translateY(0) rotate(0deg); }
-      100% { transform: translateY(-50px) rotate(360deg); }
-    }
+    /* Floating shapes */
+    .shape { position:absolute; border-radius:50%; opacity:0.2; animation: float 10s infinite ease-in-out alternate; }
+    .shape1 { width:200px; height:200px; background:#ffde59; top:10%; left:5%; animation-delay:0s;}
+    .shape2 { width:150px; height:150px; background:#00d2ff; top:30%; right:10%; animation-delay:2s;}
+    .shape3 { width:250px; height:250px; background:#ff6b81; bottom:10%; left:20%; animation-delay:4s;}
+    @keyframes float {0%{transform:translateY(0) rotate(0deg);} 100%{transform:translateY(-50px) rotate(360deg);}}
 
     /* ===== Sections ===== */
-    section {
-      max-width:1000px;
-      margin:80px auto;
-      padding:60px 40px;
-      background:white;
-      border-radius:20px;
-      box-shadow:0 25px 50px rgba(0,0,0,0.08);
-      opacity:0;
-      transform:translateY(50px);
-      transition:all 0.8s ease;
-    }
-    section.visible { opacity:1; transform:translateY(0); }
-
-    section h2 {
-      text-align:center;
-      font-size:2.5rem;
-      margin-bottom:30px;
-      font-weight:600;
-      color:#6a11cb;
-      position:relative;
-    }
-    section h2::after {
-      content:'';
-      display:block;
-      width:70px;
-      height:4px;
-      background:#ff6b81;
-      margin:10px auto 0;
-      border-radius:2px;
-    }
+    section { max-width:1000px; margin:80px auto; padding:60px 40px; background:white; border-radius:20px; box-shadow:0 25px 50px rgba(0,0,0,0.08); opacity:0; transform:translateY(50px); transition:all 0.8s ease; }
+    section.visible { opacity:1; transform:translateY(0);}
+    section h2 { text-align:center; font-size:2.5rem; margin-bottom:30px; font-weight:600; color:#6a11cb; position:relative;}
+    section h2::after { content:''; display:block; width:70px; height:4px; background:#ff6b81; margin:10px auto 0; border-radius:2px; }
 
     /* Profile Image */
-    .profile-pic {
-      display:block;
-      margin:0 auto 30px;
-      border-radius:50%;
-      width:200px;
-      height:200px;
-      object-fit:cover;
-      border:5px solid #2575fc;
-      transition: all 0.5s ease;
-    }
+    .profile-pic { display:block; margin:0 auto 30px; border-radius:50%; width:200px; height:200px; object-fit:cover; border:5px solid #2575fc; transition: all 0.5s ease; }
     .profile-pic:hover { transform: scale(1.05) rotate(3deg); }
 
     /* Lists */
-    ul { list-style:none; padding:0; margin:0 auto; max-width:600px; }
-    li { margin-bottom:15px; font-size:1.2rem; position:relative; padding-left:25px; }
-    li::before {
-      content:"•";
-      color:#ff6b81;
-      position:absolute;
-      left:0;
-      font-size:1.5rem;
-    }
+    ul { list-style:none; padding:0; margin:0 auto; max-width:700px; }
+    li { margin-bottom:12px; font-size:1.15rem; padding-left:25px; position:relative; }
+    li::before { content:"•"; position:absolute; left:0; color:#ff6b81; font-size:1.4rem; }
 
     /* Buttons */
-    .button {
-      display:inline-block;
-      padding:18px 40px;
-      margin-top:25px;
-      background:linear-gradient(135deg,#6a11cb,#ff6b81,#2575fc);
-      color:white;
-      font-size:1.1rem;
-      font-weight:600;
-      border-radius:15px;
-      transition:all 0.3s ease;
-    }
-    .button:hover {
-      transform:translateY(-5px) scale(1.05);
-      background:linear-gradient(135deg,#2575fc,#ff6b81,#6a11cb);
-    }
+    .button { display:inline-block; padding:18px 40px; margin-top:25px; background:linear-gradient(135deg,#6a11cb,#ff6b81,#2575fc); color:white; font-size:1.1rem; font-weight:600; border-radius:15px; transition:all 0.3s ease;}
+    .button:hover { transform:translateY(-5px) scale(1.05); background:linear-gradient(135deg,#2575fc,#ff6b81,#6a11cb); }
 
     /* Contact */
     .contact p { text-align:center; font-size:1.2rem; margin-bottom:15px; }
 
-    /* Animation */
-    @keyframes fadeSlide {
-      0% { opacity:0; transform:translateY(50px);}
-      100% { opacity:1; transform:translateY(0);}
-    }
+    /* Animations */
+    @keyframes fadeSlide {0%{opacity:0; transform:translateY(50px);} 100%{opacity:1; transform:translateY(0);}}
 
     /* Responsive */
-    @media(max-width:768px){
-      header h1{ font-size:3rem;}
-      header p{ font-size:1.2rem; }
-      section{ padding:40px 20px;}
-    }
+    @media(max-width:768px){ header h1{font-size:3rem;} header h2{font-size:1.5rem;} header p{font-size:1.1rem;} section{padding:40px 20px;} }
   </style>
 </head>
 <body>
@@ -152,49 +71,48 @@
     <div class="shape shape2"></div>
     <div class="shape shape3"></div>
     <h1>Munagamage D.C.S</h1>
-    <p>Biotechnology Undergraduate | Aspiring Genomics AI Specialist</p>
+    <h2>Biotechnology Graduate | AI Bioinformatics Enthusiast</h2>
+    <p>Phone: +94 77 227 1816 | Email: dinushkadinusha99@gmail.com</p>
   </header>
 
-  <!-- About Me -->
+  <!-- Objective -->
   <section class="animate">
-    <h2>About Me</h2>
-    <img src="IMG_4682.JPG" alt="Munagamage D.C.S" class="profile-pic">
-    <p>Hello! I'm Munagamage D.C.S, a 19-year-old Biotechnology undergraduate at SLIIT. I’m passionate about molecular biology, AI in genomics, and drug development. I love exploring new technologies, coding in Python, and working on science projects that make a real impact.</p>
-  </section>
-
-  <!-- Education -->
-  <section class="animate">
-    <h2>Education</h2>
-    <ul>
-      <li><b>Secondary Education:</b> A/L Biology Stream (Chemistry A, Physics B, Biology B)</li>
-      <li><b>Higher Education:</b> BSc (Hons) in Biotechnology – SLIIT (2025 – 2029)</li>
-    </ul>
+    <h2>Objective</h2>
+    <p>Recent Biotechnology graduate with strong skills in Python programming. Eager to pursue an MSc in AI Bioinformatics to deepen knowledge in machine learning and genomic data analysis. Passionate about integrating AI with genomics to develop innovative healthcare solutions. Dedicated to practical skills in data analysis and AI applications, aiming to contribute meaningfully to personalized medicine.</p>
   </section>
 
   <!-- Skills -->
   <section class="animate">
     <h2>Skills</h2>
     <ul>
-      <li>Programming: Python</li>
-      <li>Lab Skills: Molecular Biology, Genetics, Bioinformatics</li>
-      <li>Data Analysis & Statistics</li>
-      <li>Teamwork, Communication, Leadership</li>
+      <li>Python Programming</li>
+      <li>Analytical Thinking</li>
+      <li>Communication Improvement</li>
+      <li>Laboratory Techniques</li>
+      <li>Basic Bioinformatics Knowledge</li>
+      <li>Teamwork</li>
+      <li>Microsoft Office (Word, Excel, PowerPoint)</li>
+      <li>Fundamentals of Biotechnology and Genomics</li>
     </ul>
   </section>
 
-  <!-- Projects -->
+  <!-- Languages -->
   <section class="animate">
-    <h2>Projects</h2>
+    <h2>Languages</h2>
     <ul>
-      <li>Carbon Nanotube-Based Drug Delivery – Group Presentation</li>
-      <li>Udemy 100 Days of Code: Python Bootcamp – Ongoing</li>
+      <li>English</li>
+      <li>Sinhala</li>
     </ul>
   </section>
 
-  <!-- Hobbies -->
+  <!-- Education -->
   <section class="animate">
-    <h2>Hobbies</h2>
-    <p>Fitness 🏋️, Cooking 🍳, Reading science news 🔬, Learning new technologies 🧠</p>
+    <h2>Education</h2>
+    <ul>
+      <li><b>BSc (Hons) in Biotechnology:</b> Sri Lanka Institute of Information Technology (SLIIT), Sri Lanka | Relevant Coursework: Molecular Biology, Genetics, Bioinformatics, Data Analysis, Laboratory Techniques</li>
+      <li><b>Advanced Level (A/L):</b> Dharmapala Vidyalaya, Pannipitiya | Completed: 2024 | Subjects: Biology, Chemistry, Physics</li>
+      <li><b>Ordinary Level (O/L):</b> Ananda College, Kottawa, Sri Lanka</li>
+    </ul>
   </section>
 
   <!-- Resume -->
@@ -206,8 +124,10 @@
   <!-- Contact -->
   <section class="contact animate">
     <h2>Contact</h2>
-    <p>Email: hs25510282@my.sliit.lk</p>
+    <p>Email: dinushkadinusha99@gmail.com</p>
+    <p>Phone: +94 77 227 1816</p>
     <p>GitHub: <a href="https://github.com/HS25510282" target="_blank">https://github.com/HS25510282</a></p>
+    <p>Address: 353/3 Magammana, Homagama, Sri Lanka</p>
   </section>
 
   <!-- Scroll Animation -->
