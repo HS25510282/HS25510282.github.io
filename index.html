@@ -3,162 +3,183 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Munagamage D.C.S - Portfolio</title>
+  <title>Munagamage Dinushka Champaka Shamal - Bioinformatics Portfolio</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Orbitron:wght@600&display=swap');
     * {margin:0;padding:0;box-sizing:border-box;}
-    body {font-family:'Poppins',sans-serif;background:#f5f7fa;color:#0d0d0d;scroll-behavior:smooth;}
+    body {
+      font-family:'Fira Code', monospace;
+      background:#0a0f1f;
+      color:#e6f1ff;
+      scroll-behavior:smooth;
+      overflow-x:hidden;
+    }
+
+    /* --- BACKGROUND DNA + PARTICLES --- */
+    body::before {
+      content:"";
+      position:fixed;
+      top:0;left:0;width:100%;height:100%;
+      background:url('https://i.imgur.com/f9L4V3x.gif') center/cover no-repeat;
+      opacity:0.08;
+      z-index:-1;
+    }
 
     /* NAVBAR */
     nav {
-      position:fixed;top:0;left:0;width:100%;
-      background:rgba(255,255,255,0.8);
-      backdrop-filter:blur(10px);
-      display:flex;justify-content:center;gap:40px;
-      padding:15px 0;
-      z-index:1000;
-      box-shadow:0 4px 20px rgba(0,0,0,0.05);
+      position:fixed;top:0;width:100%;
+      background:rgba(10,15,31,0.9);
+      backdrop-filter:blur(8px);
+      display:flex;justify-content:center;gap:30px;
+      padding:15px 0;z-index:100;
+      border-bottom:1px solid rgba(255,255,255,0.1);
     }
     nav a {
-      font-weight:600;text-decoration:none;color:#0077ff;
+      color:#64ffda;text-decoration:none;
+      font-weight:600;letter-spacing:1px;
       transition:color 0.3s;
     }
-    nav a:hover {color:#00c897;}
+    nav a:hover {color:#00e0ff;}
 
-    /* HERO SECTION */
+    /* HERO */
     header {
-      height:100vh;
-      display:flex;flex-direction:column;
-      justify-content:center;align-items:center;
-      text-align:center;
-      background:linear-gradient(120deg,#0077ff,#00c897);
-      color:white;
-      position:relative;
-      overflow:hidden;
+      min-height:100vh;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      text-align:center;padding:20px;
     }
     header img {
-      width:150px;height:150px;border-radius:50%;
-      border:3px solid white;margin-bottom:20px;
-      animation:fadeIn 1.5s ease forwards;
+      width:140px;height:140px;border-radius:50%;
+      border:3px solid #64ffda;margin-bottom:20px;
+      box-shadow:0 0 20px #64ffda;
     }
-    header h1 {font-size:3rem;animation:fadeInUp 1.5s ease forwards;}
-    header h2 {font-size:1.5rem;margin:10px 0 20px;animation:fadeInUp 1.7s ease forwards;}
-    header p {animation:fadeInUp 1.9s ease forwards;}
-
-    @keyframes fadeIn {0%{opacity:0;transform:scale(0.8);}100%{opacity:1;transform:scale(1);}}
-    @keyframes fadeInUp {0%{opacity:0;transform:translateY(40px);}100%{opacity:1;transform:translateY(0);}}
-
-    /* DNA ANIMATION */
-    .dna {
-      position:absolute;top:0;left:0;width:100%;height:100%;
-      background:url('https://i.imgur.com/0z8Y0JG.gif') center/cover no-repeat;
-      opacity:0.15;z-index:0;
+    header h1 {
+      font-family:'Orbitron', sans-serif;
+      font-size:2.5rem;color:#64ffda;margin-bottom:10px;
+      text-shadow:0 0 15px #00e0ff;
     }
+    .typewriter {
+      font-size:1.2rem;
+      color:#ffffff;
+      overflow:hidden;
+      border-right:.15em solid #64ffda;
+      white-space:nowrap;
+      margin:0 auto;
+      letter-spacing:.1em;
+      animation:typing 4s steps(40,end), blink .75s step-end infinite;
+    }
+    @keyframes typing {from {width:0} to {width:100%}}
+    @keyframes blink {50% {border-color:transparent}}
 
-    /* SECTIONS */
     section {
-      max-width:1100px;margin:100px auto;padding:50px 25px;
-      background:white;border-radius:20px;
-      box-shadow:0 20px 50px rgba(0,0,0,0.08);
-      opacity:0;transform:translateY(50px);
-      transition:all 1s ease;
-      position:relative;z-index:1;
+      max-width:900px;
+      margin:80px auto;
+      padding:40px 25px;
+      background:rgba(255,255,255,0.03);
+      border-radius:15px;
+      box-shadow:0 0 30px rgba(0,224,255,0.1);
+      opacity:0;transform:translateY(40px);
+      transition:all 0.8s ease;
     }
     section.visible {opacity:1;transform:translateY(0);}
-    section h2 {text-align:center;font-size:2rem;color:#0077ff;margin-bottom:20px;position:relative;}
-    section h2::after {
-      content:'';display:block;width:60px;height:4px;
-      background:#00c897;margin:10px auto 0;border-radius:2px;
+    section h2 {
+      font-family:'Orbitron',sans-serif;
+      text-align:center;color:#64ffda;margin-bottom:20px;
     }
 
     /* SKILLS */
-    .skill {margin:20px 0;}
-    .skill-name {font-weight:600;margin-bottom:5px;}
-    .skill-bar {background:#e0e0e0;height:14px;border-radius:8px;overflow:hidden;}
-    .skill-fill {height:100%;width:0;background:linear-gradient(90deg,#0077ff,#00c897);border-radius:8px;transition:width 1.2s ease;}
-    .skill-percent {font-size:0.9rem;margin-left:10px;color:#0077ff;}
+    .skill {margin:15px 0;}
+    .skill-name {display:flex;justify-content:space-between;}
+    .skill-bar {
+      height:12px;background:#1f2a48;border-radius:6px;
+      overflow:hidden;margin-top:5px;
+    }
+    .skill-fill {
+      height:100%;width:0;
+      background:linear-gradient(90deg,#64ffda,#00e0ff);
+      box-shadow:0 0 15px #00e0ff;
+      transition:width 1.2s ease;
+    }
 
     /* BUTTON */
     .button {
-      display:inline-block;padding:12px 25px;
-      background:linear-gradient(120deg,#0077ff,#00c897);
-      color:white;font-weight:600;border-radius:12px;
-      transition:transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow:0 8px 20px rgba(0,119,255,0.3);
+      display:inline-block;
+      padding:12px 25px;
+      margin-top:15px;
+      color:#0a0f1f;
+      background:linear-gradient(135deg,#64ffda,#00e0ff);
+      font-weight:600;border-radius:8px;
+      box-shadow:0 0 15px #00e0ff;
+      transition:transform 0.3s ease;
     }
-    .button:hover {transform:scale(1.05);box-shadow:0 12px 25px rgba(0,200,151,0.4);}
+    .button:hover {transform:scale(1.05);}
 
-    /* CONTACT */
-    .contact p {text-align:center;margin:5px 0;}
-
-    @media(max-width:768px){
-      header h1{font-size:2rem;}header h2{font-size:1.2rem;}
-      section{margin:50px 15px;}
-    }
+    .contact p {text-align:center;margin:8px 0;}
   </style>
 </head>
 <body>
 
 <nav>
-  <a href="#about">About</a>
-  <a href="#skills">Skills</a>
-  <a href="#education">Education</a>
-  <a href="#resume">Resume</a>
-  <a href="#contact">Contact</a>
+  <a href="#about">🧬 About</a>
+  <a href="#skills">💻 Skills</a>
+  <a href="#education">🎓 Education</a>
+  <a href="#resume">📄 Resume</a>
+  <a href="#contact">📧 Contact</a>
 </nav>
 
 <header>
-  <div class="dna"></div>
   <img src="IMG_4682.JPG" alt="My Photo">
   <h1>Munagamage Dinushka Champaka Shamal</h1>
-  <h2>Biotechnology Undergraduate | Future AI Genomics Specialist</h2>
-  <p>Email: hs25510282@my.sliit.lk | Phone: +94 77 227 1816</p>
+  <div class="typewriter">Biotech + AI Enthusiast | Future AI Genomics Specialist</div>
 </header>
 
 <section id="about" class="animate">
-  <h2>About Me</h2>
-  <p>Recent Biotechnology undergraduate with a passion for integrating AI with genomics. Skilled in Python programming, bioinformatics fundamentals, and molecular biology techniques. My dream is to contribute to personalized medicine and drug discovery by combining biotechnology and machine learning.</p>
+  <h2>🧬 About Me</h2>
+  <p>I'm a passionate Biotechnology undergraduate exploring the intersection of Bioinformatics and Artificial Intelligence. Skilled in Python programming, molecular biology techniques, and genomic data analysis. My dream is to leverage AI to accelerate drug discovery and personalized medicine worldwide.</p>
 </section>
 
 <section id="skills" class="animate">
-  <h2>Skills</h2>
+  <h2>💻 Skills</h2>
   <div class="skill">
-    <div class="skill-name">Python Programming <span class="skill-percent">0%</span></div>
+    <div class="skill-name"><span>Python Programming</span><span>90%</span></div>
     <div class="skill-bar"><div class="skill-fill" data-fill="90%"></div></div>
   </div>
   <div class="skill">
-    <div class="skill-name">Laboratory Techniques <span class="skill-percent">0%</span></div>
+    <div class="skill-name"><span>Laboratory Techniques</span><span>85%</span></div>
     <div class="skill-bar"><div class="skill-fill" data-fill="85%"></div></div>
   </div>
   <div class="skill">
-    <div class="skill-name">Bioinformatics Basics <span class="skill-percent">0%</span></div>
+    <div class="skill-name"><span>Bioinformatics Basics</span><span>75%</span></div>
     <div class="skill-bar"><div class="skill-fill" data-fill="75%"></div></div>
+  </div>
+  <div class="skill">
+    <div class="skill-name"><span>Analytical Thinking</span><span>80%</span></div>
+    <div class="skill-bar"><div class="skill-fill" data-fill="80%"></div></div>
   </div>
 </section>
 
 <section id="education" class="animate">
-  <h2>Education</h2>
+  <h2>🎓 Education</h2>
   <ul>
-    <li><b>BSc (Hons) in Biotechnology</b> – SLIIT, Sri Lanka</li>
-    <li><b>Advanced Level:</b> Dharmapala Vidyalaya, Pannipitiya (Biology Stream)</li>
-    <li><b>Ordinary Level:</b> Ananda College, Kottawa</li>
+    <li><b>BSc (Hons) in Biotechnology:</b> Sri Lanka Institute of Information Technology (SLIIT)</li>
+    <li><b>Advanced Level:</b> Dharmapala Vidyalaya – Biology, Chemistry, Physics</li>
+    <li><b>Ordinary Level:</b> Ananda College, Kottawa – Excellent Results</li>
   </ul>
 </section>
 
 <section id="resume" class="animate">
-  <h2>Resume</h2>
+  <h2>📄 Resume</h2>
   <a href="HS25510282_CV.pdf" target="_blank" class="button">Download My Resume</a>
 </section>
 
 <section id="contact" class="animate contact">
-  <h2>Contact</h2>
+  <h2>📧 Contact</h2>
   <p>Email: hs25510282@my.sliit.lk</p>
   <p>Phone: +94 77 227 1816</p>
   <p>Address: 353/3, Magammana, Homagama</p>
 </section>
 
 <script>
-  // Scroll reveal
+  // Reveal on scroll
   const sections=document.querySelectorAll('.animate');
   function reveal() {
     const trigger=window.innerHeight*0.85;
@@ -174,17 +195,7 @@
   window.addEventListener('scroll',()=>{
     document.querySelectorAll('.skill-fill').forEach(fill=>{
       const rect=fill.getBoundingClientRect();
-      if(rect.top<window.innerHeight){
-        const percent=fill.getAttribute('data-fill');
-        fill.style.width=percent;
-        let num=0;
-        const counter=setInterval(()=>{
-          if(num<parseInt(percent)) {
-            num++;
-            fill.parentElement.previousElementSibling.querySelector('.skill-percent').textContent=num+"%";
-          } else clearInterval(counter);
-        },15);
-      }
+      if(rect.top<window.innerHeight) fill.style.width=fill.getAttribute('data-fill');
     });
   });
 </script>
