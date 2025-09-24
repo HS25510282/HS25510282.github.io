@@ -5,127 +5,142 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Munagamage D.C.S - Biotechnology Portfolio</title>
   <style>
-    /* ===== General Styles ===== */
-    * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f7; color: #111; }
-    a { text-decoration: none; color: #0071e3; transition: 0.3s; }
-    a:hover { color: #005bb5; }
+    /* ===== Global ===== */
+    * { margin:0; padding:0; box-sizing:border-box; scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; background: #f0f4f8; color: #111; overflow-x:hidden; }
+    a { text-decoration: none; color: inherit; }
 
     /* ===== Header ===== */
     header {
-      height: 100vh;
-      background: linear-gradient(160deg, #1c1c1e, #3a3a3c);
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 20px;
+      height:100vh;
+      background: linear-gradient(135deg,#ff6b81,#6a11cb,#2575fc);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:white;
+      position:relative;
+      overflow:hidden;
     }
     header h1 {
-      font-size: 4rem;
-      margin-bottom: 20px;
-      opacity: 0;
-      transform: translateY(50px);
+      font-size:4rem;
+      margin-bottom:20px;
+      opacity:0;
+      transform:translateY(50px);
       animation: fadeSlide 1s forwards;
     }
     header p {
-      font-size: 1.5rem;
-      max-width: 600px;
-      opacity: 0;
-      transform: translateY(50px);
+      font-size:1.5rem;
+      max-width:600px;
+      opacity:0;
+      transform:translateY(50px);
       animation: fadeSlide 1s forwards;
-      animation-delay: 0.4s;
+      animation-delay:0.5s;
+    }
+
+    /* Floating Animated Shapes */
+    .shape {
+      position:absolute;
+      border-radius:50%;
+      opacity:0.2;
+      animation: float 10s infinite ease-in-out alternate;
+    }
+    .shape1 { width:200px; height:200px; background:#ffde59; top:10%; left:5%; animation-delay:0s; }
+    .shape2 { width:150px; height:150px; background:#00d2ff; top:30%; right:10%; animation-delay:2s; }
+    .shape3 { width:250px; height:250px; background:#ff6b81; bottom:10%; left:20%; animation-delay:4s; }
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-50px) rotate(360deg); }
     }
 
     /* ===== Sections ===== */
     section {
-      max-width: 1000px;
-      margin: 80px auto;
-      padding: 60px 30px;
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 25px 40px rgba(0,0,0,0.08);
-      opacity: 0;
-      transform: translateY(50px);
-      transition: transform 0.6s ease, opacity 0.6s ease;
+      max-width:1000px;
+      margin:80px auto;
+      padding:60px 40px;
+      background:white;
+      border-radius:20px;
+      box-shadow:0 25px 50px rgba(0,0,0,0.08);
+      opacity:0;
+      transform:translateY(50px);
+      transition:all 0.8s ease;
     }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    section.visible { opacity:1; transform:translateY(0); }
+
     section h2 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 30px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      color: #111;
+      text-align:center;
+      font-size:2.5rem;
+      margin-bottom:30px;
+      font-weight:600;
+      color:#6a11cb;
+      position:relative;
+    }
+    section h2::after {
+      content:'';
+      display:block;
+      width:70px;
+      height:4px;
+      background:#ff6b81;
+      margin:10px auto 0;
+      border-radius:2px;
     }
 
-    /* ===== Profile Image ===== */
+    /* Profile Image */
     .profile-pic {
-      display: block;
-      margin: 0 auto 30px;
-      border-radius: 50%;
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border: 4px solid #0071e3;
-      transition: transform 0.5s ease;
+      display:block;
+      margin:0 auto 30px;
+      border-radius:50%;
+      width:200px;
+      height:200px;
+      object-fit:cover;
+      border:5px solid #2575fc;
+      transition: all 0.5s ease;
     }
-    .profile-pic:hover {
-      transform: scale(1.05);
-    }
+    .profile-pic:hover { transform: scale(1.05) rotate(3deg); }
 
-    /* ===== Lists ===== */
-    ul { list-style-type: none; padding: 0; margin: 0 auto; max-width: 600px; }
-    li { margin-bottom: 15px; font-size: 1.2rem; position: relative; padding-left: 20px; }
+    /* Lists */
+    ul { list-style:none; padding:0; margin:0 auto; max-width:600px; }
+    li { margin-bottom:15px; font-size:1.2rem; position:relative; padding-left:25px; }
     li::before {
-      content: "•";
-      color: #0071e3;
-      position: absolute;
-      left: 0;
-      font-size: 1.5rem;
-      line-height: 1;
+      content:"•";
+      color:#ff6b81;
+      position:absolute;
+      left:0;
+      font-size:1.5rem;
     }
 
-    /* ===== Buttons ===== */
+    /* Buttons */
     .button {
-      display: inline-block;
-      padding: 15px 35px;
-      margin-top: 25px;
-      background: #0071e3;
-      color: #fff;
-      font-size: 1.1rem;
-      font-weight: 600;
-      border-radius: 12px;
-      transition: background 0.3s ease, transform 0.3s ease;
+      display:inline-block;
+      padding:18px 40px;
+      margin-top:25px;
+      background:linear-gradient(135deg,#6a11cb,#ff6b81,#2575fc);
+      color:white;
+      font-size:1.1rem;
+      font-weight:600;
+      border-radius:15px;
+      transition:all 0.3s ease;
     }
     .button:hover {
-      background: #005bb5;
-      transform: translateY(-3px);
+      transform:translateY(-5px) scale(1.05);
+      background:linear-gradient(135deg,#2575fc,#ff6b81,#6a11cb);
     }
 
-    /* ===== Contact ===== */
-    .contact p {
-      text-align: center;
-      font-size: 1.2rem;
-      margin-bottom: 15px;
-    }
+    /* Contact */
+    .contact p { text-align:center; font-size:1.2rem; margin-bottom:15px; }
 
-    /* ===== Animations ===== */
+    /* Animation */
     @keyframes fadeSlide {
-      0% { opacity: 0; transform: translateY(50px); }
-      100% { opacity: 1; transform: translateY(0); }
+      0% { opacity:0; transform:translateY(50px);}
+      100% { opacity:1; transform:translateY(0);}
     }
 
-    /* ===== Responsive ===== */
-    @media (max-width: 768px) {
-      header h1 { font-size: 3rem; }
-      header p { font-size: 1.2rem; }
-      section { margin: 50px 20px; padding: 40px 20px; }
+    /* Responsive */
+    @media(max-width:768px){
+      header h1{ font-size:3rem;}
+      header p{ font-size:1.2rem; }
+      section{ padding:40px 20px;}
     }
   </style>
 </head>
@@ -133,6 +148,9 @@
 
   <!-- Header -->
   <header>
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
     <h1>Munagamage D.C.S</h1>
     <p>Biotechnology Undergraduate | Aspiring Genomics AI Specialist</p>
   </header>
@@ -192,20 +210,18 @@
     <p>GitHub: <a href="https://github.com/HS25510282" target="_blank">https://github.com/HS25510282</a></p>
   </section>
 
-  <!-- ===== Scroll Animation JS ===== -->
+  <!-- Scroll Animation -->
   <script>
     const sections = document.querySelectorAll('.animate');
-    const revealSection = () => {
-      const triggerBottom = window.innerHeight * 0.85;
-      sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        if(sectionTop < triggerBottom){
-          section.classList.add('visible');
-        }
+    const reveal = () => {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if(top < trigger){ sec.classList.add('visible'); }
       });
     }
-    window.addEventListener('scroll', revealSection);
-    window.addEventListener('load', revealSection);
+    window.addEventListener('scroll', reveal);
+    window.addEventListener('load', reveal);
   </script>
 
 </body>
