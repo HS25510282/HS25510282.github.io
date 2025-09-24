@@ -3,66 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
+  <title>Munagamage D.C.S - Biotechnology Portfolio</title>
   <style>
+    /* General Styles */
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f7f7f7;
+      background: #f4f4f9;
       color: #333;
     }
+    a {
+      text-decoration: none;
+      color: #007BFF;
+    }
+    a:hover {
+      color: #0056b3;
+    }
+
+    /* Header */
     header {
       background: #222;
-      color: white;
+      color: #fff;
+      padding: 40px 0;
       text-align: center;
-      padding: 20px 0;
     }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.2rem;
+    }
+
+    /* Sections */
     section {
-      max-width: 800px;
-      margin: 20px auto;
-      background: white;
-      padding: 20px;
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
     }
-    h1, h2 {
+    section h2 {
       text-align: center;
+      color: #222;
+      margin-bottom: 20px;
     }
-    img {
+
+    /* Profile Picture */
+    .profile-pic {
       display: block;
-      margin: 0 auto;
+      margin: 0 auto 20px;
       border-radius: 50%;
-      width: 150px;
-      height: 150px;
+      width: 180px;
+      height: 180px;
       object-fit: cover;
+      border: 3px solid #007BFF;
     }
-    a.button {
+
+    /* Lists */
+    ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+
+    /* Resume Button */
+    .button {
       display: inline-block;
       background: #007BFF;
-      color: white;
-      padding: 10px 20px;
-      text-decoration: none;
+      color: #fff;
+      padding: 12px 25px;
       border-radius: 5px;
-      margin-top: 10px;
+      margin-top: 15px;
+      font-weight: bold;
     }
-    a.button:hover {
+    .button:hover {
       background: #0056b3;
+    }
+
+    /* Contact Info */
+    .contact p {
+      text-align: center;
+      margin: 8px 0;
     }
   </style>
 </head>
 <body>
 
+  <!-- Header -->
   <header>
-    <h1>My Portfolio</h1>
+    <h1>Munagamage D.C.S</h1>
+    <p>Biotechnology Undergraduate | Aspiring Genomics AI Specialist</p>
   </header>
 
+  <!-- About Me -->
   <section>
     <h2>About Me</h2>
-    <img src="IMG_4682.JPG" alt="My Photo">
-    <p>Hi, I'm Munagamage D.C.S 👋 I’m a 19-year-old Biotechnology undergraduate at SLIIT, passionate about molecular biology, pharmacology, and AI in genomics.</p>
+    <img src="IMG_4682.JPG" alt="Munagamage D.C.S" class="profile-pic">
+    <p>Hello! I'm Munagamage D.C.S, a 19-year-old Biotechnology undergraduate at SLIIT. I’m passionate about molecular biology, AI in genomics, and drug development. I love exploring new technologies, coding in Python, and working on science projects that make a real impact.</p>
   </section>
 
+  <!-- Education -->
   <section>
     <h2>Education</h2>
     <ul>
@@ -71,34 +117,42 @@
     </ul>
   </section>
 
+  <!-- Skills -->
   <section>
     <h2>Skills</h2>
     <ul>
       <li>Programming: Python</li>
-      <li>Bioinformatics, Genetics, Lab Safety</li>
+      <li>Lab Skills: Molecular Biology, Genetics, Bioinformatics</li>
+      <li>Data Analysis & Statistics</li>
       <li>Teamwork, Communication, Leadership</li>
     </ul>
   </section>
 
+  <!-- Projects -->
   <section>
     <h2>Projects</h2>
-    <p>Carbon Nanotube-Based Drug Delivery – Group Presentation</p>
+    <ul>
+      <li>Udemy 100 Days of Code: Python Bootcamp – Ongoing</li>
+    </ul>
   </section>
 
+  <!-- Hobbies -->
   <section>
     <h2>Hobbies</h2>
-    <p>Fitness 🏋️, Cooking 🍳, Learning new tech 🧠</p>
+    <p>Fitness 🏋️, Cooking 🍳, Reading science news 🔬, Learning new technologies 🧠</p>
   </section>
 
+  <!-- Resume -->
   <section>
     <h2>Resume</h2>
-    <a href="resume.pdf" class="button" target="_blank">Download My Resume</a>
+    <a href="HS25510282Resume.pdf" class="button" target="_blank">Download My Resume</a>
   </section>
 
-  <section>
+  <!-- Contact -->
+  <section class="contact">
     <h2>Contact</h2>
-    <p>Email: hs25510282@my.sliit.lk</p>
-    <p>GitHub: <a href="https://github.com/hs25510282" target="_blank">https://github.com/yourusername</a></p>
+    <p>Email: your.email@example.com</p>
+    <p>GitHub: <a href="https://github.com/DinushkaChampika" target="_blank">https://github.com/DinushkaChampika</a></p>
   </section>
 
 </body>
