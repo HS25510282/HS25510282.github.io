@@ -5,145 +5,178 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Munagamage D.C.S - Portfolio</title>
   <style>
-    /* ===== Global Styles ===== */
-    * { margin:0; padding:0; box-sizing:border-box; scroll-behavior: smooth; }
-    body { font-family: 'Poppins', sans-serif; background: #f0f4f8; color: #111; overflow-x:hidden; }
-    a { text-decoration: none; color: inherit; }
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+    * {margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+    body {font-family: 'Poppins', sans-serif;background:#f8faff;color:#0a0a0a;}
 
-    /* ===== Header ===== */
+    /* HEADER */
     header {
       height:100vh;
-      background: linear-gradient(135deg,#6a11cb,#2575fc,#ff6b81);
       display:flex;
       flex-direction:column;
       justify-content:center;
       align-items:center;
       text-align:center;
+      background: linear-gradient(135deg, #00d2ff, #3a7bd5);
       color:white;
       position:relative;
       overflow:hidden;
     }
-    header h1 { font-size:4rem; margin-bottom:15px; opacity:0; transform:translateY(50px); animation:fadeSlide 1s forwards;}
-    header h2 { font-size:2rem; opacity:0; transform:translateY(50px); animation:fadeSlide 1s forwards; animation-delay:0.4s;}
-    header p { margin-top:15px; font-size:1.2rem; opacity:0; transform:translateY(50px); animation:fadeSlide 1s forwards; animation-delay:0.6s;}
+    header img {
+      width:150px;
+      height:150px;
+      border-radius:50%;
+      border:3px solid white;
+      margin-bottom:15px;
+      animation:fadeDown 1s ease forwards;
+    }
+    header h1 {font-size:3rem;margin-bottom:10px;animation:fadeDown 1.2s ease forwards;}
+    header h2 {font-size:1.5rem;margin-bottom:15px;animation:fadeDown 1.4s ease forwards;}
+    header p {animation:fadeDown 1.6s ease forwards;}
 
-    /* Floating shapes */
-    .shape { position:absolute; border-radius:50%; opacity:0.2; animation: float 10s infinite ease-in-out alternate; }
-    .shape1 { width:200px; height:200px; background:#ffde59; top:10%; left:5%; animation-delay:0s;}
-    .shape2 { width:150px; height:150px; background:#00d2ff; top:30%; right:10%; animation-delay:2s;}
-    .shape3 { width:250px; height:250px; background:#ff6b81; bottom:10%; left:20%; animation-delay:4s;}
-    @keyframes float {0%{transform:translateY(0) rotate(0deg);} 100%{transform:translateY(-50px) rotate(360deg);}}
+    @keyframes fadeDown {
+      0% {opacity:0; transform:translateY(-30px);}
+      100% {opacity:1; transform:translateY(0);}
+    }
 
-    /* ===== Sections ===== */
-    section { max-width:1000px; margin:80px auto; padding:60px 40px; background:white; border-radius:20px; box-shadow:0 25px 50px rgba(0,0,0,0.08); opacity:0; transform:translateY(50px); transition:all 0.8s ease; }
-    section.visible { opacity:1; transform:translateY(0);}
-    section h2 { text-align:center; font-size:2.5rem; margin-bottom:30px; font-weight:600; color:#6a11cb; position:relative;}
-    section h2::after { content:''; display:block; width:70px; height:4px; background:#ff6b81; margin:10px auto 0; border-radius:2px; }
+    /* DNA background lines */
+    .dna-line {
+      position:absolute;
+      width:4px;
+      height:100%;
+      background:rgba(255,255,255,0.2);
+      animation:moveUp 5s linear infinite;
+    }
+    .dna-line:nth-child(1) {left:20%;}
+    .dna-line:nth-child(2) {left:50%; animation-delay:1s;}
+    .dna-line:nth-child(3) {left:80%; animation-delay:2s;}
+    @keyframes moveUp {
+      0% {transform:translateY(100%);}
+      100% {transform:translateY(-100%);}
+    }
 
-    /* Profile Image */
-    .profile-pic { display:block; margin:0 auto 30px; border-radius:50%; width:200px; height:200px; object-fit:cover; border:5px solid #2575fc; transition: all 0.5s ease; }
-    .profile-pic:hover { transform: scale(1.05) rotate(3deg); }
+    /* SECTION STYLE */
+    section {
+      max-width:1000px;
+      margin:70px auto;
+      padding:40px 25px;
+      background:white;
+      border-radius:20px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.08);
+      opacity:0;
+      transform:translateY(50px);
+      transition:all 0.8s ease;
+    }
+    section.visible {opacity:1;transform:translateY(0);}
+    section h2 {text-align:center;font-size:2rem;color:#3a7bd5;margin-bottom:20px;}
 
-    /* Lists */
-    ul { list-style:none; padding:0; margin:0 auto; max-width:700px; }
-    li { margin-bottom:12px; font-size:1.15rem; padding-left:25px; position:relative; }
-    li::before { content:"•"; position:absolute; left:0; color:#ff6b81; font-size:1.4rem; }
+    /* SKILL BARS */
+    .skill {margin:10px 0;}
+    .skill-name {margin-bottom:5px;font-weight:600;}
+    .skill-bar {width:100%;height:12px;background:#e0e0e0;border-radius:10px;overflow:hidden;}
+    .skill-fill {height:100%;width:0;background:linear-gradient(90deg,#00d2ff,#3a7bd5,#00ff94);border-radius:10px;transition:width 1s ease;}
 
-    /* Buttons */
-    .button { display:inline-block; padding:18px 40px; margin-top:25px; background:linear-gradient(135deg,#6a11cb,#ff6b81,#2575fc); color:white; font-size:1.1rem; font-weight:600; border-radius:15px; transition:all 0.3s ease;}
-    .button:hover { transform:translateY(-5px) scale(1.05); background:linear-gradient(135deg,#2575fc,#ff6b81,#6a11cb); }
+    /* BUTTON */
+    .button {
+      display:inline-block;
+      padding:12px 25px;
+      margin-top:20px;
+      background:linear-gradient(135deg,#3a7bd5,#00ff94);
+      color:white;
+      font-weight:600;
+      border-radius:12px;
+      transition:transform 0.3s ease;
+    }
+    .button:hover {transform:scale(1.05);}
 
-    /* Contact */
-    .contact p { text-align:center; font-size:1.2rem; margin-bottom:15px; }
+    /* CONTACT */
+    .contact p {text-align:center;margin:5px 0;}
 
-    /* Animations */
-    @keyframes fadeSlide {0%{opacity:0; transform:translateY(50px);} 100%{opacity:1; transform:translateY(0);}}
-
-    /* Responsive */
-    @media(max-width:768px){ header h1{font-size:3rem;} header h2{font-size:1.5rem;} header p{font-size:1.1rem;} section{padding:40px 20px;} }
+    @media(max-width:768px) {
+      header h1{font-size:2rem;}
+      header h2{font-size:1.2rem;}
+    }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="shape shape1"></div>
-    <div class="shape shape2"></div>
-    <div class="shape shape3"></div>
-    <h1>Munagamage D.C.S</h1>
-    <h2>Biotechnology Graduate | AI Bioinformatics Enthusiast</h2>
-    <p>Phone: +94 77 227 1816 | Email: dinushkadinusha99@gmail.com</p>
-  </header>
+<header>
+  <div class="dna-line"></div>
+  <div class="dna-line"></div>
+  <div class="dna-line"></div>
+  <img src="IMG_4682.JPG" alt="My Photo">
+  <h1>Munagamage Dinushka Champaka Shamal</h1>
+  <h2>Biotechnology Undergraduate | Future AI Genomics Specialist</h2>
+  <p>Email: hs25510282@my.sliit.lk | Phone: +94 77 227 1816</p>
+</header>
 
-  <!-- About Me -->
-  <section class="animate">
-    <h2>About Me</h2>
-    <img src="IMG_4682.JPG" alt="Munagamage D.C.S" class="profile-pic">
-    <p>I am a recent Biotechnology graduate with strong skills in Python programming. I am eager to pursue an MSc in AI Bioinformatics to deepen my knowledge of machine learning and genomic data analysis. I am passionate about integrating artificial intelligence with genomics research to develop innovative healthcare solutions. Dedicated to building practical skills in data analysis and AI applications, I aim to contribute meaningfully to advancements in personalized medicine through interdisciplinary collaboration.</p>
-  </section>
+<section class="animate">
+  <h2>About Me</h2>
+  <p>Recent Biotechnology undergraduate with strong skills in Python programming. Passionate about integrating Artificial Intelligence with Genomics research to develop innovative healthcare solutions. Dedicated to building expertise in bioinformatics, machine learning, and data analysis to contribute to personalized medicine and cutting-edge research.</p>
+</section>
 
-  <!-- Skills -->
-  <section class="animate">
-    <h2>Skills</h2>
-    <ul>
-      <li>Python Programming</li>
-      <li>Analytical Thinking</li>
-      <li>Communication Improvement</li>
-      <li>Laboratory Techniques</li>
-      <li>Basic Bioinformatics Knowledge</li>
-      <li>Teamwork</li>
-      <li>Microsoft Office (Word, Excel, PowerPoint)</li>
-      <li>Fundamentals of Biotechnology and Genomics</li>
-    </ul>
-  </section>
+<section class="animate">
+  <h2>Skills</h2>
+  <div class="skill">
+    <div class="skill-name">Python Programming</div>
+    <div class="skill-bar"><div class="skill-fill" data-fill="90%"></div></div>
+  </div>
+  <div class="skill">
+    <div class="skill-name">Laboratory Techniques</div>
+    <div class="skill-bar"><div class="skill-fill" data-fill="85%"></div></div>
+  </div>
+  <div class="skill">
+    <div class="skill-name">Analytical Thinking</div>
+    <div class="skill-bar"><div class="skill-fill" data-fill="80%"></div></div>
+  </div>
+  <div class="skill">
+    <div class="skill-name">Bioinformatics Basics</div>
+    <div class="skill-bar"><div class="skill-fill" data-fill="70%"></div></div>
+  </div>
+</section>
 
-  <!-- Languages -->
-  <section class="animate">
-    <h2>Languages</h2>
-    <ul>
-      <li>English</li>
-      <li>Sinhala</li>
-    </ul>
-  </section>
+<section class="animate">
+  <h2>Education</h2>
+  <ul>
+    <li><b>BSc (Hons) in Biotechnology:</b> Sri Lanka Institute of Information Technology (SLIIT), Sri Lanka</li>
+    <li><b>Advanced Level:</b> Dharmapala Vidyalaya, Pannipitiya – Biology, Chemistry, Physics</li>
+    <li><b>Ordinary Level:</b> Ananda College, Kottawa – Completed with excellent results</li>
+  </ul>
+</section>
 
-  <!-- Education -->
-  <section class="animate">
-    <h2>Education</h2>
-    <ul>
-      <li><b>BSc (Hons) in Biotechnology:</b> Sri Lanka Institute of Information Technology (SLIIT), Sri Lanka | Relevant Coursework: Molecular Biology, Genetics, Bioinformatics, Data Analysis, Laboratory Techniques</li>
-      <li><b>Advanced Level (A/L):</b> Dharmapala Vidyalaya, Pannipitiya | Completed: 2024 | Subjects: Biology, Chemistry, Physics</li>
-      <li><b>Ordinary Level (O/L):</b> Ananda College, Kottawa, Sri Lanka</li>
-    </ul>
-  </section>
+<section class="animate">
+  <h2>Resume</h2>
+  <a href="HS25510282_CV.pdf" target="_blank" class="button">Download My Resume</a>
+</section>
 
-  <!-- Resume -->
-  <section class="animate">
-    <h2>Resume</h2>
-    <a href="HS25510282_CV.pdf" class="button" target="_blank">Download My Resume</a>
-  </section>
+<section class="animate contact">
+  <h2>Contact</h2>
+  <p>Email: hs25510282@my.sliit.lk</p>
+  <p>Phone: +94 77 227 1816</p>
+  <p>Address: 353/3, Magammana, Homagama</p>
+</section>
 
-  <!-- Contact -->
-  <section class="contact animate">
-    <h2>Contact</h2>
-    <p>Email: dinushkadinusha99@gmail.com</p>
-    <p>Phone: +94 77 227 1816</p>
-    <p>GitHub: <a href="https://github.com/HS25510282" target="_blank">https://github.com/HS25510282</a></p>
-    <p>Address: 353/3 Magammana, Homagama, Sri Lanka</p>
-  </section>
+<script>
+  // Scroll reveal animation
+  const sections = document.querySelectorAll('.animate');
+  function reveal() {
+    const trigger = window.innerHeight * 0.85;
+    sections.forEach(sec => {
+      const top = sec.getBoundingClientRect().top;
+      if (top < trigger) sec.classList.add('visible');
+    });
+  }
+  window.addEventListener('scroll', reveal);
+  window.addEventListener('load', reveal);
 
-  <!-- Scroll Animation -->
-  <script>
-    const sections = document.querySelectorAll('.animate');
-    const reveal = () => {
-      const trigger = window.innerHeight * 0.85;
-      sections.forEach(sec => {
-        const top = sec.getBoundingClientRect().top;
-        if(top < trigger){ sec.classList.add('visible'); }
-      });
-    }
-    window.addEventListener('scroll', reveal);
-    window.addEventListener('load', reveal);
-  </script>
+  // Animate skill bars
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('.skill-fill').forEach(fill => {
+      const rect = fill.getBoundingClientRect();
+      if (rect.top < window.innerHeight) fill.style.width = fill.getAttribute('data-fill');
+    });
+  });
+</script>
 
 </body>
 </html>
