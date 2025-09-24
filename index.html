@@ -6,119 +6,126 @@
   <title>Munagamage D.C.S - Biotechnology Portfolio</title>
   <style>
     /* ===== General Styles ===== */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f4f8; color: #333; line-height: 1.6; overflow-x: hidden; }
-    a { text-decoration: none; color: #ff6b81; transition: 0.3s; }
-    a:hover { color: #ff4757; }
+    * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f7; color: #111; }
+    a { text-decoration: none; color: #0071e3; transition: 0.3s; }
+    a:hover { color: #005bb5; }
 
     /* ===== Header ===== */
     header {
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      height: 100vh;
+      background: linear-gradient(160deg, #1c1c1e, #3a3a3c);
       color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 70px 20px;
-      animation: fadeInDown 1s ease forwards;
+      padding: 0 20px;
     }
-    header h1 { font-size: 3rem; margin-bottom: 10px; }
-    header p { font-size: 1.3rem; font-weight: 500; }
-
-    /* ===== Section Styling ===== */
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      background: #fff;
-      padding: 50px 35px;
-      border-radius: 20px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    header h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
       opacity: 0;
       transform: translateY(50px);
-      animation: fadeInUp 1s forwards;
-      animation-delay: 0.3s;
+      animation: fadeSlide 1s forwards;
     }
-    section:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    header p {
+      font-size: 1.5rem;
+      max-width: 600px;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeSlide 1s forwards;
+      animation-delay: 0.4s;
+    }
+
+    /* ===== Sections ===== */
+    section {
+      max-width: 1000px;
+      margin: 80px auto;
+      padding: 60px 30px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 25px 40px rgba(0,0,0,0.08);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     section h2 {
       text-align: center;
-      color: #6a11cb;
-      margin-bottom: 25px;
-      font-size: 2rem;
-      position: relative;
-    }
-    section h2::after {
-      content: '';
-      display: block;
-      width: 70px;
-      height: 4px;
-      background: #2575fc;
-      margin: 10px auto 0;
-      border-radius: 2px;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #111;
     }
 
     /* ===== Profile Image ===== */
     .profile-pic {
       display: block;
-      margin: 0 auto 25px;
+      margin: 0 auto 30px;
       border-radius: 50%;
-      width: 180px;
-      height: 180px;
+      width: 200px;
+      height: 200px;
       object-fit: cover;
-      border: 5px solid #ff6b81;
-      animation: fadeIn 1.5s ease forwards;
+      border: 4px solid #0071e3;
+      transition: transform 0.5s ease;
+    }
+    .profile-pic:hover {
+      transform: scale(1.05);
     }
 
     /* ===== Lists ===== */
-    ul { list-style-type: disc; padding-left: 25px; }
-    li { margin-bottom: 12px; font-size: 1.05rem; }
+    ul { list-style-type: none; padding: 0; margin: 0 auto; max-width: 600px; }
+    li { margin-bottom: 15px; font-size: 1.2rem; position: relative; padding-left: 20px; }
+    li::before {
+      content: "•";
+      color: #0071e3;
+      position: absolute;
+      left: 0;
+      font-size: 1.5rem;
+      line-height: 1;
+    }
 
     /* ===== Buttons ===== */
     .button {
       display: inline-block;
-      background: linear-gradient(135deg, #ff6b81, #ff4757);
+      padding: 15px 35px;
+      margin-top: 25px;
+      background: #0071e3;
       color: #fff;
-      padding: 14px 30px;
-      border-radius: 10px;
-      font-weight: bold;
-      font-size: 1rem;
-      margin-top: 20px;
-      transition: background 0.3s ease, transform 0.2s ease;
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-      animation-delay: 0.6s;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 12px;
+      transition: background 0.3s ease, transform 0.3s ease;
     }
     .button:hover {
-      background: linear-gradient(135deg, #ff4757, #ff6b81);
+      background: #005bb5;
       transform: translateY(-3px);
     }
 
-    /* ===== Contact Info ===== */
+    /* ===== Contact ===== */
     .contact p {
       text-align: center;
-      font-size: 1.1rem;
-      margin-bottom: 12px;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
     }
 
     /* ===== Animations ===== */
-    @keyframes fadeInDown {
-      0% { opacity: 0; transform: translateY(-50px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInUp {
+    @keyframes fadeSlide {
       0% { opacity: 0; transform: translateY(50px); }
       100% { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
     }
 
     /* ===== Responsive ===== */
     @media (max-width: 768px) {
-      header h1 { font-size: 2.2rem; }
-      header p { font-size: 1.1rem; }
-      section { padding: 35px 20px; }
+      header h1 { font-size: 3rem; }
+      header p { font-size: 1.2rem; }
+      section { margin: 50px 20px; padding: 40px 20px; }
     }
   </style>
 </head>
@@ -131,14 +138,14 @@
   </header>
 
   <!-- About Me -->
-  <section style="animation-delay:0.2s;">
+  <section class="animate">
     <h2>About Me</h2>
     <img src="IMG_4682.JPG" alt="Munagamage D.C.S" class="profile-pic">
     <p>Hello! I'm Munagamage D.C.S, a 19-year-old Biotechnology undergraduate at SLIIT. I’m passionate about molecular biology, AI in genomics, and drug development. I love exploring new technologies, coding in Python, and working on science projects that make a real impact.</p>
   </section>
 
   <!-- Education -->
-  <section style="animation-delay:0.4s;">
+  <section class="animate">
     <h2>Education</h2>
     <ul>
       <li><b>Secondary Education:</b> A/L Biology Stream (Chemistry A, Physics B, Biology B)</li>
@@ -147,7 +154,7 @@
   </section>
 
   <!-- Skills -->
-  <section style="animation-delay:0.5s;">
+  <section class="animate">
     <h2>Skills</h2>
     <ul>
       <li>Programming: Python</li>
@@ -158,7 +165,7 @@
   </section>
 
   <!-- Projects -->
-  <section style="animation-delay:0.6s;">
+  <section class="animate">
     <h2>Projects</h2>
     <ul>
       <li>Carbon Nanotube-Based Drug Delivery – Group Presentation</li>
@@ -167,23 +174,39 @@
   </section>
 
   <!-- Hobbies -->
-  <section style="animation-delay:0.7s;">
+  <section class="animate">
     <h2>Hobbies</h2>
     <p>Fitness 🏋️, Cooking 🍳, Reading science news 🔬, Learning new technologies 🧠</p>
   </section>
 
   <!-- Resume -->
-  <section style="animation-delay:0.8s;">
+  <section class="animate">
     <h2>Resume</h2>
     <a href="HS25510282_CV.pdf" class="button" target="_blank">Download My Resume</a>
   </section>
 
   <!-- Contact -->
-  <section class="contact" style="animation-delay:0.9s;">
+  <section class="contact animate">
     <h2>Contact</h2>
     <p>Email: hs25510282@my.sliit.lk</p>
     <p>GitHub: <a href="https://github.com/HS25510282" target="_blank">https://github.com/HS25510282</a></p>
   </section>
+
+  <!-- ===== Scroll Animation JS ===== -->
+  <script>
+    const sections = document.querySelectorAll('.animate');
+    const revealSection = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if(sectionTop < triggerBottom){
+          section.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', revealSection);
+    window.addEventListener('load', revealSection);
+  </script>
 
 </body>
 </html>
