@@ -130,13 +130,14 @@
 
 <header>
   <img src="IMG_4682.JPG" alt="My Photo">
-  <h1>Munagamage Dinushka Champaka Shamal</h1>
+  <h1>Munagamage D.C.S</h1>
   <div class="typewriter">Biotech + AI Enthusiast | Future AI Genomics Specialist</div>
+  <p>Email: hs25510282@my.sliit.lk | Phone: +94 77 227 1816</p>
 </header>
 
 <section id="about" class="animate">
   <h2>🧬 About Me</h2>
-  <p>I'm a passionate Biotechnology undergraduate exploring the intersection of Bioinformatics and Artificial Intelligence. Skilled in Python programming, molecular biology techniques, and genomic data analysis. My dream is to leverage AI to accelerate drug discovery and personalized medicine worldwide.</p>
+  <p>I am a passionate Biotechnology undergraduate exploring the intersection of Bioinformatics and Artificial Intelligence. Skilled in Python programming, molecular biology techniques, and genomic data analysis. My goal is to leverage AI to accelerate drug discovery and personalized medicine worldwide.</p>
 </section>
 
 <section id="skills" class="animate">
@@ -153,12 +154,16 @@
     <div class="skill-name"><span>Bioinformatics Basics</span><span>75%</span></div>
     <div class="skill-bar"><div class="skill-fill" data-fill="75%"></div></div>
   </div>
+  <div class="skill">
+    <div class="skill-name"><span>Analytical Thinking</span><span>80%</span></div>
+    <div class="skill-bar"><div class="skill-fill" data-fill="80%"></div></div>
+  </div>
 </section>
 
 <section id="education" class="animate">
   <h2>🎓 Education</h2>
   <ul>
-    <li><b>BSc (Hons) in Biotechnology:</b> SLIIT, Sri Lanka</li>
+    <li><b>BSc (Hons) in Biotechnology:</b> Sri Lanka Institute of Information Technology (SLIIT)</li>
     <li><b>Advanced Level:</b> Dharmapala Vidyalaya – Biology, Chemistry, Physics</li>
     <li><b>Ordinary Level:</b> Ananda College, Kottawa</li>
   </ul>
@@ -166,7 +171,7 @@
 
 <section id="resume" class="animate">
   <h2>📄 Resume</h2>
-  <a href="HS25510282_CV.pdf" target="_blank" class="button">Download My Resume</a>
+  <a href="HS25510282_CV.pdf" target="_blank" class="button">Download D.C.S Resume</a>
 </section>
 
 <section id="contact" class="animate contact">
@@ -176,6 +181,7 @@
   <p>Address: 353/3, Magammana, Homagama</p>
 </section>
 
+<!-- Particle JS library -->
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
   // Particle background
@@ -203,7 +209,7 @@
   window.addEventListener('scroll',reveal);
   window.addEventListener('load',reveal);
 
-  // Animate skills
+  // Animate skill bars
   window.addEventListener('scroll',()=>{
     document.querySelectorAll('.skill-fill').forEach(fill=>{
       const rect=fill.getBoundingClientRect();
